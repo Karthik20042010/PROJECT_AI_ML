@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MainPage.css">
+    <title>Vitamin Analysis Platform</title>
+    <style>
+        /* Your existing styles */
+        body {
+            background-color: #f4f4f4; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+
+        header {
+            background-color: #1E90FF; /* Blue header background */
+            color: #fff; /* White text color */
+        }
+
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #uploaded-image {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 20px;
+        }
+
+        .output-section {
+            grid-column: span 3;
+            margin-top: 20px;
+        }
+        .main {
+            width: 98vw;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: 3px solid;
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 2fr 1fr 1fr 1fr ;
+            scroll-behavior: smooth;
+            background-color: #fff; /* White background */
+            color: #333; /* Dark text color */
+        }
+
+        .read-more-button {
+            display: inline-block;
+            background-color: #4CAF50; /* Green read more button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* ... (other styles remain the same) */
+
+        footer {
+            background-color: #1E90FF; /* Blue footer background */
+            color: #fff; /* White text color */
+        }
+    </style>
+    <script>
+        const menuLinks = document.querySelectorAll('.menu a');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', smoothScroll);
+        });
+
+        function smoothScroll(event) {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showMore() {
+            var moreButton = document.getElementById("more-button");
+            moreButton.style.display = "none";
+            var hiddenMembers = document.getElementsByClassName("hidden");
+            for (var i = 0; i < hiddenMembers.length; i++) {
+                hiddenMembers[i].style.display = "inline-block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/logoiet.jpg" alt="Logo">
+        </div>
+        <div class="welcome">
+            Welcome! <br>
+            <a href="login.php">Login</a><br><a href="register.php">Signin</a>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
+            <li><a href="vitamin.php">Vitamin Info</a></li>
+            <li><a href="members.php">Members</a></li>
+            <li><a href="contact.php">Help Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="main">
+        <div class="x" id="x2"> 
+            <p><br><br>LEVERAGE THE POWER OF DEEP LEARNING AND COMPUTER VISION FOR VITAMIN ANALYSIS <br><br>
+            Discover a revolutionary approach to identify and quantify the presence of vitamins in various food items using advanced deep learning techniques. Our platform, powered by VGG19, ensures rapid and accurate vitamin analysis, transforming the way we assess and manage nutrition.</p> 
+            <a href="about.php" class="read-more-button">Read More</a>
+        </div>
+
+        <!-- Update other sections accordingly -->
+
+    </div>
+    <div class="upload-section">
+        <input type="file" id="image-input" accept="image/*" onchange="previewImage()">
+        <img id="uploaded-image" alt="Uploaded Image">
+        <button onclick="predictImage()">Predict</button>
+    </div>
+
+    <div class="output-section">
+        <!-- The predicted results will be displayed here -->
+    </div>
+    <a href="#top" class="back-to-top">Back to Top</a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-us">
+                <a href="contact.php">Contact Us</a>
+            </div>
+            
+            <div class="social-media-links">
+                <a href="#"><img src="path_to_facebook_icon.png" alt="Facebook"></a>
+                <a href="#"><img src="path_to_twitter_icon.png" alt="Twitter"></a>
+                <a href="#"><img src="path_to_instagram_icon.png" alt="Instagram"></a>
+                <!-- Add more social media icons and links as needed -->
+            </div>
+            <div class="signup">
+                <a href="login.php">Sign Up</a>
+            </div>
+            <div class="help-us">
+                <a href="contact.php">Help Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
